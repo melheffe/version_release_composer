@@ -1,0 +1,26 @@
+name: Release Version
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Bump version and push tag
+      if: github.event.pull_request.merged == true
+      uses: melheffe/version_release_composer@master
+      env:
+        PREPEND: 'v'
+        APPEND: '.aws'
+        DRAFT: 'true'
+        PRERELEASE: 'true'
+        TOKEN: ${{ secrets.TOKEN }}
+        REPO_OWNER: melheffe
+        VERSION_FILE_NAME: 'VERSION'
