@@ -18,7 +18,7 @@ jobs:
       uses: melheffe/version_release_composer@master
       env:
         PREPEND: 'v'
-        APPEND: '.aws'
+        APPEND: '' # must include '.' or it will append without separation
         DRAFT: 'true'
         PRERELEASE: 'true'
         TOKEN: ${{ secrets.TOKEN }}
