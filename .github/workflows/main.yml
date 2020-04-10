@@ -22,5 +22,6 @@ jobs:
         DRAFT: 'true'
         PRERELEASE: 'true'
         TOKEN: ${{ secrets.TOKEN }}
+        TRIGGER: ${{ github.event.pull_request.head.ref }} # can use the triggering branch or define a fixed one like this: 'master'
         REPO_OWNER: melheffe
         VERSION_FILE_NAME: 'VERSION'
