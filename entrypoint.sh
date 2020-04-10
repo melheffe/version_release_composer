@@ -5,7 +5,7 @@ function get_latest_tag {
 }
 
 function get_current_info {
-  current_branch=$(git rev-parse --abbrev-ref HEAD)
+  current_branch=$TRIGGER
 }
 
 function prepare_file_info {
