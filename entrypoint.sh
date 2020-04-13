@@ -1,7 +1,9 @@
 #!/bin/bash
 
 function get_latest_tag {
-  latest_tag=$(git describe --abbrev=0 --tags)
+  tag=$(git tag | tail -1)
+  describe=$(git describe --abbrev=0 --tags)
+  latest_tag=${$describe:=$tag}
   echo "Latest Tag:" $latest_tag
 }
 
