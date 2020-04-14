@@ -1,10 +1,16 @@
 #!/bin/bash
 
 function get_latest_tag {
-  tag=$(git tag | tail -1)
-  describe=$(git describe --abbrev=0 --tags)
-  latest_tag=${$describe:=$tag}
+  describe_tag || tail_tag
   echo "Latest Tag:" $latest_tag
+}
+
+function describe_tag {
+  latest_tag=$(git describe --abbrev=0 --tags)
+}
+
+function tail_tag {
+  latest_tag=$(git tag | tail -1)
 }
 
 function get_current_info {
