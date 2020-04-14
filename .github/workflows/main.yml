@@ -4,6 +4,8 @@ on:
   pull_request:
     types:
       - closed
+    branches:
+      - master
 
 jobs:
 
@@ -19,7 +21,7 @@ jobs:
       env:
         PREPEND: 'v'
         APPEND: '' # must include '.' or it will append without separation
-        DRAFT: 'true'
+        DRAFT: 'false'
         PRERELEASE: 'true'
         TOKEN: ${{ secrets.TOKEN }}
         TRIGGER: ${{ github.event.pull_request.base.ref }} # can use the triggering branch or define a fixed one like this: 'master'
